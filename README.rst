@@ -7,9 +7,9 @@ Probably will work something like this:
 
     from smorgasbord import Smorgasbord
 
-    set = Smorgasbord([97, "b", "c", u"ü", u"\u0660"])
+    spread = Smorgasbord([97, "b", "c", u"ü", u"\u0660"])
 
-    english = set.reports['en']
+    english = spread.reports['en']
     english.language.name
     # => "English"
     english.language.characters
@@ -23,5 +23,5 @@ Probably will work something like this:
     english.uncovered
     # => [u"d", u"e", u"f", ...]
 
-    all = [report for reports in set.reports]
+    all = [report for reports in spread.reports]
     # => [<Report lang="en">, <Report lang="fr">, ...]

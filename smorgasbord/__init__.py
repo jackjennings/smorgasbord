@@ -1,6 +1,3 @@
-from .unicode_set import UnicodeSet
+from .smorgasbord import Smorgasbord
 
 __version__ = "0.0.1"
-
-class Smorgasbord(UnicodeSet):
-    pass

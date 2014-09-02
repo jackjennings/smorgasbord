@@ -9,7 +9,7 @@ Probably will work something like this:
 
     bord = Smorgasbord([97, "b", "c", u"ü", u"\u0660"])
     bord.reports
-    # => [<Report lang="en">, <Report lang="fr">, ...]
+    # => {u'en': <Report lang="en">, u'fr': <Report lang="fr">, ...}
 
     english = bord.reports['en']
     english.language.name

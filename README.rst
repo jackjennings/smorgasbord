@@ -1,6 +1,9 @@
 Smörgåsbord
 ===========
 
+.. image:: https://travis-ci.org/jackjennings/smorgasbord.svg?branch=master
+    :target: https://travis-ci.org/jackjennings/smorgasbord
+
 Probably will work something like this:
 
 .. code-block:: python

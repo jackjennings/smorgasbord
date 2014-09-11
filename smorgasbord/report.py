@@ -1,14 +1,18 @@
 from __future__ import division
 import os
 from .language import Language
-from .unicode_set import UnicodeSet
 from .coverage import Coverage
+from .unicode_set import UnicodeSet
 
 class Report(object):
 
-    def __init__(self, bord, language_file):
+    def __init__(self, characters, language_file):
+        self.characters = UnicodeSet(characters)
         self.language = Language.parse(language_file)
-        self.coverage = Coverage(len(self.covered) / len(self.uncovered))
+
+    @property
+    def coverage(self):
+        return Coverage(len(self.covered) / len(self.language.characters))
 
     @property
     def code(self):
@@ -16,8 +20,8 @@ class Report(object):
 
     @property
     def covered(self):
-        return UnicodeSet([])
+        return self.language.characters & self.characters
 
     @property
     def uncovered(self):
-        return UnicodeSet(['f'])
+        return self.language.characters - self.characters

@@ -11,10 +11,11 @@ Probably will work something like this:
     from smorgasbord import Smorgasbord
 
     bord = Smorgasbord([97, "b", "c", u"ü", u"\u0660"])
+    # => Smorgasbord([u"a", u"c", u"b", u"\xfc", u"\u0660"])
     bord.reports
-    # => {u'en': <Report lang="en">, u'fr': <Report lang="fr">, ...}
+    # => {u"en": <Report lang="en">, u"fr": <Report lang="fr">, ...}
 
-    english = bord.reports['en']
+    english = bord.reports["en"]
     english.language.name
     # => "English"
     english.language.characters

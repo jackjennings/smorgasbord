@@ -18,3 +18,8 @@ class TestUnicodeSet(object):
     def test_contains_chr_representation(self):
         s = UnicodeSet([u'a'])
         assert 'a' in s
+
+    def test_iterable_order(self):
+        s = UnicodeSet(['b', 'c', 'a'])
+        l = [c for c in s]
+        assert [u"a", u"b", u"c"] == l

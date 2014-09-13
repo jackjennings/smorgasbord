@@ -19,3 +19,6 @@ class Reporter(object):
     
     def __contains__(self, item):
         return item in self.reports
+
+    def __iter__(self):
+        return iter(self.reports)

@@ -37,3 +37,10 @@ class TestReporter(object):
     def test_reports_return_report_objects(self):
         reporter = Reporter(['a'], [fixtures_path])
         assert isinstance(reporter['multiline'], Report)
+
+    def test_reporter_iter(self):
+        reporter = Reporter([], [fixtures_path])
+        keys = [key for key in reporter]
+        expects = ['basic', 'multiline', 'unicode']
+        for e in expects:
+            assert e in keys

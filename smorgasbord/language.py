@@ -6,9 +6,9 @@ class Language(object):
     @classmethod
     def parse(cls, language_file):
         parser = LanguageParser(language_file)
-        return cls(parser.code, parser.name, parser.characters)
+        return cls(parser.code, parser.headers['language'], parser.characters)
         
-    def __init__(self, code, name, characters=[], qualifiers=[]):
+    def __init__(self, code, name, characters=None, qualifiers=None):
         self.code = code
         self.name = name
-        self.characters = UnicodeSet(['a', 'b', 'c'])
+        self.characters = UnicodeSet(characters)

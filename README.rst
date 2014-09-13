@@ -84,3 +84,8 @@ This is a quick list of features that will need to be added in the near future (
 * Lazily evaluate reports. Currently the library loads all language files when a Smorgasbord is initialized, which will get slow, fast. This should happen at the latest possible moment.
 * Unicode ranges in language files. Adding support for unicode ranges will probably be necesary for languages with large character sets.
 * Better language support. Probably starting with languages using the latin alphabet, and continue in subjective order of easiest to define and number of speakers.
+
+Known Bugs
+----------
+
+* Currently no support for reading unicode characters for language files

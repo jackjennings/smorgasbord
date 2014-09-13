@@ -4,7 +4,9 @@ Smörgåsbord
 .. image:: https://travis-ci.org/jackjennings/smorgasbord.svg?branch=master
     :target: https://travis-ci.org/jackjennings/smorgasbord
 
-Works like this:
+Smörgåsbord tests sets of unicode characters to determine what language support is covered.
+
+It works like this:
 
 .. code-block:: python
 

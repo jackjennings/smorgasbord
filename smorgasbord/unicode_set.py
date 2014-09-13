@@ -1,7 +1,10 @@
 class UnicodeSet(set):
 
-    def __init__(self, iterable):
-        iterable = [self._encode(c) for c in iterable]
+    def __init__(self, iterable=None):
+        if iterable is None:
+            iterable = []
+        else:
+            iterable = [self._encode(c) for c in iterable]
         super(UnicodeSet, self).__init__(iterable)
 
     def __contains__(self, char):

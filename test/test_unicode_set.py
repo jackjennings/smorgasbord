@@ -21,5 +21,8 @@ class TestUnicodeSet(object):
 
     def test_iterable_order(self):
         s = UnicodeSet(['b', 'c', 'a'])
-        l = [c for c in s]
-        assert [u"a", u"b", u"c"] == l
+        assert [u"a", u"b", u"c"] == [c for c in s]
+
+    def test_init_empty_set(self):
+        s = UnicodeSet()
+        assert [] == list(s)

@@ -36,12 +36,6 @@ Supported Languages
 
 * `English <smorgasbord/languages/en.txt>`_
 
-Custom langauges files can be set at runtime by supplying a path to a folder:
-
-.. code-block:: python
-
-    Smorgasbord.language_paths.append("/my/path/to/language/files/dir")
-
 Language Files
 --------------
 
@@ -57,11 +51,22 @@ For example, the ``en.txt`` definition for English:
 
 The first line is a special comment that will be parsed as the language name. Other special comments may be added in the future, but for now only ``Language`` is supported.
 
+Custom Language Files
+---------------------
+
+Custom langauges files can be set at runtime by supplying a path to a folder:
+
+.. code-block:: python
+
+    Smorgasbord.language_paths.append("/my/path/to/language/files/dir")
+
+
 Contributing or Updating Languages
 ----------------------------------
 
 1. Fork this repository
 2. Add your language text file or modify and existing file
+3. Add you language to the list of supported languages in this README
 3. Commit the change with a brief description (e.g. ``created en.txt``, ``added ñ to es.txt``)
 4. Create a pull request
 

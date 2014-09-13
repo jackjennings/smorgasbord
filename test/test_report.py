@@ -6,8 +6,10 @@ from smorgasbord.coverage import Coverage
 path = os.path.dirname(os.path.abspath(__file__))
 fixtures_path = os.path.join(path, 'fixtures')
 
-def make_report():
-    return Report([], os.path.join(fixtures_path, 'multiline.txt'))
+def make_report(chars=None):
+    if chars is None:
+        chars = []
+    return Report(chars, os.path.join(fixtures_path, 'basic.txt'))
 
 class TestReport(object):
 
@@ -20,3 +22,12 @@ class TestReport(object):
         report = make_report()
         assert hasattr(report, 'coverage')
         assert isinstance(report.coverage, Coverage)
+
+    def test_returns_incomplete(self):
+        report = make_report()
+        assert report.incomplete
+
+    def test_returns_complete(self):
+        report = make_report()
+        report.characters.update(report.language.characters)
+        assert report.complete

@@ -26,6 +26,14 @@ class Report(object):
     def uncovered(self):
         return self.language.characters - self.characters
 
+    @property
+    def complete(self):
+        return not self.uncovered
+
+    @property
+    def incomplete(self):
+        return not self.complete
+
     def _maybe_make_set(self, iterable):
         if not isinstance(iterable, set):
             iterable = UnicodeSet(iterable)

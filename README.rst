@@ -30,6 +30,10 @@ It works like this:
     # => [u"a", u"b", u"c"]
     en.uncovered
     # => [u"d", u"e", u"f", ...]
+    en.complete
+    # => False
+    en.incomplete
+    # => True
 
 Tested and working on Python 2.6, 2.7, 3.3, and 3.4.
 

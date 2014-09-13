@@ -22,7 +22,7 @@ Works like this:
     # => [u"a", u"b", u"c", ...]
     en.coverage
     # => 0.057
-    en.coverage.percent
+    en.coverage.percentage
     # => u"5.7%"
     en.covered
     # => [u"a", u"b", u"c"]
@@ -61,14 +61,14 @@ Custom langauges files can be set at runtime by supplying a path to a folder:
     Smorgasbord.language_paths.append("/my/path/to/language/files/dir")
 
 
-Contributing or Updating Languages
-----------------------------------
+Contributing
+------------
 
 1. Fork this repository
 2. Add your language text file or modify and existing file
 3. Add you language to the list of supported languages in this README
-3. Commit the change with a brief description (e.g. ``created en.txt``, ``added ñ to es.txt``)
-4. Create a pull request
+4. Commit the change with a brief description (e.g. ``created en.txt``, ``added ñ to es.txt``)
+5. Create a pull request
 
 Roadmap
 -------

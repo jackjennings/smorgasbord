@@ -12,19 +12,28 @@ class LanguageParser(object):
         self.name = self.headers.get('Language')
 
     def parse_characters(self):
-        with codecs.open(self.filepath, "r", "utf-8") as f:
+        with self._open_file() as f:
             characters = [char for line in f if not self._is_comment(line)
                                for char in line.rstrip('\n').split(' ')]
         return characters
 
-    def _is_comment(self, line):
-        return line[0] == '#'
-
     def parse_headers(self):
         headers = {}
-        with open(self.filepath) as f:
-            head = takewhile(self._is_comment, f)
-            for l in head:
-                (key, value) = l[2:].split(':')
+        with self._open_file() as f:
+            head = takewhile(self._is_header, f)
+            for line in head:
+                (key, value) = self._split_header(line)
                 headers[key.lower()] = value.strip()
         return headers
+
+    def _split_header(self, line):
+        return line[2:].split(':')
+
+    def _is_comment(self, line):
+        return line[0] == '#'
+    
+    def _is_header(self, line):
+        return self._is_comment(line) and line.find(':') != -1
+
+    def _open_file(self):
+        return codecs.open(self.filepath, "r", "utf-8")

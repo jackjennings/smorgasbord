@@ -1,3 +1,4 @@
+import codecs
 from os.path import splitext, basename
 from itertools import takewhile
 
@@ -11,7 +12,7 @@ class LanguageParser(object):
         self.name = self.headers.get('Language')
 
     def parse_characters(self):
-        with open(self.filepath) as f:
+        with codecs.open(self.filepath, "r", "utf-8") as f:
             characters = [char for line in f if not self._is_comment(line)
                                for char in line.rstrip('\n').split(' ')]
         return characters

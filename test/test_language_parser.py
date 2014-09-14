@@ -21,6 +21,10 @@ class TestLanguageParser(object):
         parser = make_parser('multiline.txt')
         assert [u"a", u"b", u"c"] == parser.characters
 
+    def test_parses_unicode_characters(self):
+        parser = make_parser("unicode.txt")
+        assert [u"\xe5", u"\xdf", u"\xe7", u"d"] == parser.characters
+
     def test_parses_headers(self):
         parser = make_parser('basic.txt')
         assert {"language": "Foo"} == parser.headers

@@ -1,0 +1,2 @@
+# Language: Foo2
+x y z

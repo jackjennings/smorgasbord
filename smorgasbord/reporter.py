@@ -9,7 +9,8 @@ class Reporter(object):
                                  for f in self._listdir(directory)]
         self.reports = {}
         for r in (Report(bord, f) for f in self.language_files):
-            self.reports[r.code] = r
+            if not r.code in self.reports:
+                self.reports[r.code] = r
 
     def _listdir(self, directory):
         return (os.path.join(directory, f) for f in os.listdir(directory))

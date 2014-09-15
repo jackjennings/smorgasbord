@@ -1,4 +1,5 @@
 import os
+import re
 from smorgasbord.reporter import Reporter
 from smorgasbord.report import Report
 
@@ -44,3 +45,9 @@ class TestReporter(object):
         expects = ['basic', 'multiline', 'unicode']
         for e in expects:
             assert e in keys
+
+    def test_prevents_report_override(self):
+        custom_fixtures_path = os.path.join(path, 'custom_fixtures')
+        reporter = Reporter([], [custom_fixtures_path, fixtures_path])
+        expects = os.path.join(custom_fixtures_path, 'basic.txt')
+        assert reporter.reports['basic'].language_filepath == expects

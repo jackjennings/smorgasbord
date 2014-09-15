@@ -6,9 +6,10 @@ from .unicode_set import UnicodeSet
 
 class Report(object):
 
-    def __init__(self, characters, language_file):
+    def __init__(self, characters, language_filepath):
+        self.language_filepath = language_filepath
         self.characters = self._maybe_make_set(characters)
-        self.language = Language.parse(language_file)
+        self.language = Language.parse(language_filepath)
 
     @property
     def coverage(self):

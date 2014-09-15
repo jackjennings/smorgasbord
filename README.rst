@@ -6,30 +6,40 @@ Smörgåsbord
 
 Smörgåsbord tests sets of unicode characters to determine what language support is covered.
 
-It works like this:
+This library deveoped as a tool for type designers only as an approximate guide for planning purposes. `Regional <https://en.wikipedia.org/wiki/Serbian_Cyrillic_alphabet#Differences_from_other_Cyrillic_alphabets>`_ `variation <https://en.wikipedia.org/wiki/Regional_handwriting_variation>`_ in `letterforms <https://en.wikipedia.org/wiki/Han_unification>`_ is left as a exercise for the designer, and detection isn't a planned feature.
 
 .. code-block:: python
 
     from smorgasbord import Smorgasbord
 
+    # Characters can be passed as integers, strings, or unicode strings (in python 2.7)
     bord = Smorgasbord([97, "b", "c", u"ü", u"\u0660"])
     # => Smorgasbord([u"a", u"c", u"b", u"\xfc", u"\u0660"])
 
+    # Reports are accessed though the "reports" dict using the language code
     en = bord.reports["en"]
+    
+    # Basic information about the report's language is accessible
     en.language.code
     # => "en"
     en.language.name
     # => "English"
     en.language.characters
-    # => [u"a", u"b", u"c", ...]
+    # => UnicodeSet([u"a", u"b", u"c", ...])
+    
+    # Amount of coverage is availbe as float and string representations
     en.coverage
     # => 0.057
     en.coverage.percentage
     # => u"5.7%"
+    
+    # Sets of glyphs can be accessed
     en.covered
-    # => [u"a", u"b", u"c"]
+    # => UnicodeSet([u"a", u"b", u"c"])
     en.uncovered
-    # => [u"d", u"e", u"f", ...]
+    # => UnicodeSet([u"d", u"e", u"f", ...])
+    
+    # Reports can also return a boolean value for completeness:
     en.complete
     # => False
     en.incomplete

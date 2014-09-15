@@ -88,7 +88,7 @@ Contributing
 ------------
 
 1. Fork this repository
-2. Add your language text file or modify and existing file
+2. Add your language file to the `languages directory <smorgasbord/languages>`_ or modify an existing file
 3. Add you language to the list of supported languages in this README
 4. Commit the change with a brief description (e.g. ``created en.txt``, ``added ñ to es.txt``)
 5. Create a pull request

@@ -16,37 +16,37 @@ Supports Python 2.6 – 3.x
 
     from smorgasbord import Smorgasbord
 
-    bord = Smorgasbord([97, "b", "c", u"ü", u"\u0660"])
-    # => Smorgasbord([u"a", u"c", u"b", u"\xfc", u"\u0660"])
+    >>> bord = Smorgasbord([97, "b", "c", u"ü", u"\u0660"])
+    Smorgasbord([u"a", u"c", u"b", u"\xfc", u"\u0660"])
 
     # Reports are accessed though the "reports" dict using the language code
-    en = bord.reports["en"]
+    >>> en = bord.reports["en"]
     
     # Basic information about the report's language is accessible
-    en.language.code
-    # => "en"
-    en.language.name
-    # => "English"
-    en.language.characters
-    # => UnicodeSet([u"a", u"b", u"c", ...])
+    >>> en.language.code
+    "en"
+    >>> en.language.name
+    "English"
+    >>> en.language.characters
+    UnicodeSet([u"a", u"b", u"c", ...])
     
     # Amount of coverage is availbe as float and string representations
-    en.coverage
-    # => 0.057
-    en.coverage.percentage
-    # => u"5.7%"
+    >>> en.coverage
+    0.057
+    >>> en.coverage.percentage
+    u"5.7%"
     
     # Sets of glyphs can be accessed
-    en.covered
-    # => UnicodeSet([u"a", u"b", u"c"])
-    en.uncovered
-    # => UnicodeSet([u"d", u"e", u"f", ...])
+    >>> en.covered
+    UnicodeSet([u"a", u"b", u"c"])
+    >>> en.uncovered
+    UnicodeSet([u"d", u"e", u"f", ...])
     
     # Reports can also return a boolean value for completeness:
-    en.complete
-    # => False
-    en.incomplete
-    # => True
+    >>> en.complete
+    False
+    >>> en.incomplete
+    True
 
 Supported Languages
 -------------------
@@ -62,9 +62,9 @@ For example, the ``en.txt`` definition for English:
 
 .. code-block:: python
 
-  # Language: English
-  a b c d e f g h i j k l m n o p q r s t u v w x y z
-  A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+    # Language: English
+    a b c d e f g h i j k l m n o p q r s t u v w x y z
+    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 
 The first line is a special comment that will be parsed as the language name. Other special comments may be added in the future, but for now only ``Language`` is supported.
 

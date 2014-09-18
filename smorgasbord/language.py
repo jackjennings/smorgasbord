@@ -1,5 +1,5 @@
 from .language_parser import LanguageParser
-from .unicode_set import UnicodeSet
+from unicodeset import FrozenUnicodeSet
 
 class Language(object):
     
@@ -11,4 +11,4 @@ class Language(object):
     def __init__(self, code, name, characters=None, qualifiers=None):
         self.code = code
         self.name = name
-        self.characters = UnicodeSet(characters)
+        self.characters = FrozenUnicodeSet(characters)

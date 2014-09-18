@@ -29,5 +29,5 @@ class TestReport(object):
 
     def test_returns_complete(self):
         report = make_report()
-        report.characters.update(report.language.characters)
+        report = make_report(report.language.characters)
         assert report.complete

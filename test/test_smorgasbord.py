@@ -1,6 +1,5 @@
 import os
 from smorgasbord import Smorgasbord
-from smorgasbord.unicode_set import UnicodeSet
 
 path = os.path.dirname(os.path.abspath(__file__))
 fixtures_path = os.path.join(path, 'fixtures')
@@ -22,9 +21,6 @@ class TestSmorgasbord(object):
     def test_updates_reports_when_changed(self):
         Smorgasbord.language_paths.append(fixtures_path)
         bord = Smorgasbord(['a'])
-        assert UnicodeSet('a') == bord.reports['basic'].covered
-        assert bord.reports['basic'].coverage.percentage == '33%'
         bord.add('b')
-        assert UnicodeSet(['a', 'b']) == bord.reports['basic'].covered
-        assert bord.reports['basic'].coverage.percentage == '67%'
+        assert ['a', 'b'] == [c for c in bord.reports['basic'].covered]
         Smorgasbord.language_paths.pop()

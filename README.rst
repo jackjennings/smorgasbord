@@ -8,11 +8,14 @@ Smörgåsbord tests sets of unicode characters to determine what language suppor
 
 This library deveoped as a tool for type designers only as an approximate guide for planning purposes. `Regional <https://en.wikipedia.org/wiki/Serbian_Cyrillic_alphabet#Differences_from_other_Cyrillic_alphabets>`_ `variation <https://en.wikipedia.org/wiki/Regional_handwriting_variation>`_ in `letterforms <https://en.wikipedia.org/wiki/Han_unification>`_ is left as a exercise for the designer, and detection isn't a planned feature.
 
+The ``Smorgasbord`` class inherits from ```UnicodeSet`` <https://github.com/jackjennings/unicodeset>`_ and supports the same features.
+
+Supports Python 2.6 – 3.x
+
 .. code-block:: python
 
     from smorgasbord import Smorgasbord
 
-    # Characters can be passed as integers, strings, or unicode strings (in python 2.7)
     bord = Smorgasbord([97, "b", "c", u"ü", u"\u0660"])
     # => Smorgasbord([u"a", u"c", u"b", u"\xfc", u"\u0660"])
 
@@ -44,8 +47,6 @@ This library deveoped as a tool for type designers only as an approximate guide 
     # => False
     en.incomplete
     # => True
-
-Tested and working on Python 2.6, 2.7, 3.3, and 3.4.
 
 Supported Languages
 -------------------

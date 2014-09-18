@@ -2,7 +2,8 @@ from __future__ import division
 import os
 from .language import Language
 from .coverage import Coverage
-from .unicode_set import UnicodeSet
+from unicodeset import FrozenUnicodeSet
+
 
 class Report(object):
 
@@ -36,6 +37,6 @@ class Report(object):
         return not self.complete
 
     def _maybe_make_set(self, iterable):
-        if not isinstance(iterable, set):
-            iterable = UnicodeSet(iterable)
+        if not isinstance(iterable, set) or isinstance(iterable, frozenset):
+            iterable = FrozenUnicodeSet(iterable)
         return iterable

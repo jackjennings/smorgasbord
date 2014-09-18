@@ -11,6 +11,8 @@ setup(
     license='LICENSE',
     description='Reports language coverage given a set of unicode values',
     long_description=open('README.rst').read(),
-    install_requires=[],
+    install_requires=[
+        'unicodeset'
+    ],
     include_package_data=True
 )

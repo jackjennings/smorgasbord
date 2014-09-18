@@ -1,6 +1,7 @@
 import os
 from .report import Report
 
+
 class Reporter(object):
 
     def __init__(self, bord, paths):
@@ -12,9 +13,6 @@ class Reporter(object):
             if not r.code in self.reports:
                 self.reports[r.code] = r
 
-    def _listdir(self, directory):
-        return (os.path.join(directory, f) for f in os.listdir(directory))
-
     def __getitem__(self, key):
         return self.reports[key]
     
@@ -23,3 +21,6 @@ class Reporter(object):
 
     def __iter__(self):
         return iter(self.reports)
+
+    def _listdir(self, directory):
+        return (os.path.join(directory, f) for f in os.listdir(directory))

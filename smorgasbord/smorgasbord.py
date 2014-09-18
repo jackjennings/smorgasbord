@@ -1,4 +1,4 @@
-from .unicode_set import UnicodeSet
+from unicodeset import UnicodeSet
 from .reporter import Reporter
 
 class Smorgasbord(UnicodeSet):

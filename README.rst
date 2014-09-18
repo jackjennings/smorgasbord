@@ -8,7 +8,7 @@ Smörgåsbord tests sets of unicode characters to determine what language suppor
 
 This library deveoped as a tool for type designers only as an approximate guide for planning purposes. `Regional <https://en.wikipedia.org/wiki/Serbian_Cyrillic_alphabet#Differences_from_other_Cyrillic_alphabets>`_ `variation <https://en.wikipedia.org/wiki/Regional_handwriting_variation>`_ in `letterforms <https://en.wikipedia.org/wiki/Han_unification>`_ is left as a exercise for the designer, and detection isn't a planned feature.
 
-The ``Smorgasbord`` class inherits from ```UnicodeSet`` <https://github.com/jackjennings/unicodeset>`_ and supports the same features.
+The ``Smorgasbord`` class inherits from ``UnicodeSet`` and supports `the same features <https://github.com/jackjennings/unicodeset>`_.
 
 Supports Python 2.6 – 3.x
 

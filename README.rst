@@ -92,9 +92,9 @@ Alternatively, the ``language_paths`` array can be replaced to only use locally 
 Contributing
 ------------
 
-1. Fork this repository
+1. `Fork <https://github.com/jackjennings/smorgasbord/fork>`_ this repository
 2. Add your language file to the `languages directory <smorgasbord/languages>`_ or modify an existing file
-3. Add you language to the list of supported languages in this README
+3. Add you language to the `list of supported languages <jackjennings/smorgasbord#supported-languages>`_ in this README
 4. Commit the change with a brief description (e.g. ``created en.txt``, ``added ñ to es.txt``)
 5. Create a pull request
 

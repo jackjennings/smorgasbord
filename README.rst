@@ -75,11 +75,12 @@ The first line is a special comment that will be parsed as the language name. Ot
 Custom Language Files
 ---------------------
 
-Custom langauges files can be set at runtime by supplying a path to a folder.
+Custom langauges files can be set at runtime by supplying a path to a folder, or directly to a language file.
 
 .. code-block:: python
 
     Smorgasbord.language_paths.prepend("/my/path/to/language/files/dir")
+    Smorgasbord.language_paths.prepend("/my/path/to/language/file.txt")
 
 Language files are searched for in each succesive folder, using the first matching file. Language files included with this package can be overriden by prepending a local folder; an ``en.txt`` language file in the local folder will be used in preference to the internal ``en.txt``.
 

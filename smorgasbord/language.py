@@ -1,6 +1,7 @@
 from .language_parser import LanguageParser
 from unicodeset import FrozenUnicodeSet
 
+
 class Language(object):
     
     @classmethod

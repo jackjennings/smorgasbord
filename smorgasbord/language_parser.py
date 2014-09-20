@@ -2,6 +2,7 @@ import codecs
 from os.path import splitext, basename
 from itertools import takewhile
 
+
 class LanguageParser(object):
 
     def __init__(self, filepath):

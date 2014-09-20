@@ -6,6 +6,7 @@ from smorgasbord.report import Report
 path = os.path.dirname(os.path.abspath(__file__))
 fixtures_path = os.path.join(path, 'fixtures')
 
+
 class TestReporter(object):
 
     def test_sets_bord(self):
@@ -15,6 +16,12 @@ class TestReporter(object):
 
     def test_finds_language_files(self):
         reporter = Reporter(['a'], [fixtures_path])
+        assert hasattr(reporter, 'language_files')
+        assert os.path.join(fixtures_path, 'multiline.txt') in \
+            reporter.language_files
+
+    def test_finds_language_files(self):
+        reporter = Reporter(['a'], [os.path.join(fixtures_path, 'multiline.txt')])
         assert hasattr(reporter, 'language_files')
         assert os.path.join(fixtures_path, 'multiline.txt') in \
             reporter.language_files

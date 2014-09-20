@@ -22,11 +22,11 @@ class Report(object):
 
     @property
     def covered(self):
-        return self.language.characters & self.characters
+        return FrozenUnicodeSet(self.language.characters & self.characters)
 
     @property
     def uncovered(self):
-        return self.language.characters - self.characters
+        return FrozenUnicodeSet(self.language.characters - self.characters)
 
     @property
     def complete(self):

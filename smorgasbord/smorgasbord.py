@@ -1,6 +1,7 @@
 from unicodeset import UnicodeSet
 from .reporter import Reporter
 
+
 class Smorgasbord(UnicodeSet):
 
     language_paths = []

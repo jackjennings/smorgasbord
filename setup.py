@@ -7,7 +7,7 @@ setup(
     author_email='j@ckjennin.gs',
     packages=['smorgasbord'],
     url='http://github.com/jackjennings/smorgasbord',
-    license='LICENSE',
+    license='MIT',
     description='Reports language coverage given a set of unicode values',
     long_description=open('README.rst').read(),
     install_requires=['unicodeset'],

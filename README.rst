@@ -19,7 +19,7 @@ Supports Python 2.6 – 3.x
     from smorgasbord import Smorgasbord
 
     # Provide a path to a file or folder of character sets
-    Smorgasbord.language_paths.prepend("/my/path/to/language/en.txt")
+    Smorgasbord.paths.prepend("/my/path/to/language/en.txt")
 
     >>> bord = Smorgasbord([97, "b", "c", u"ü", u"\u0660"])
     Smorgasbord([u"a", u"c", u"b", u"\xfc", u"\u0660"])
@@ -75,16 +75,16 @@ Character sets are made available by supplying a path to a folder, or directly t
 
 .. code-block:: python
 
-    Smorgasbord.language_paths.prepend("/my/path/to/language/files/dir")
-    Smorgasbord.language_paths.prepend("/my/path/to/language/file.txt")
+    Smorgasbord.paths.prepend("/my/path/to/language/files/dir")
+    Smorgasbord.paths.prepend("/my/path/to/language/file.txt")
 
 Character set files are searched for in each succesive folder, using the first matching file.
 
-Alternatively, the ``language_paths`` array can be replaced entirely:
+Alternatively, the ``paths`` array can be replaced entirely:
 
 .. code-block:: python
 
-    Smorgasbord.language_paths = ["/my/path/to/language/files/dir"]
+    Smorgasbord.paths = ["/my/path/to/language/files/dir"]
 
 Roadmap
 -------

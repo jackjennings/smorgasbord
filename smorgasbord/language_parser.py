@@ -10,7 +10,7 @@ class LanguageParser(object):
         self.code = splitext(basename(filepath))[0]
         self.characters = self.parse_characters()
         self.headers = self.parse_headers()
-        self.name = self.headers.get('Language')
+        self.name = self.headers.get('language')
 
     def parse_characters(self):
         with self._open_file() as f:

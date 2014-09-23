@@ -29,6 +29,10 @@ class TestLanguageParser(object):
         parser = make_parser('basic.txt')
         assert {"language": "Foo"} == parser.headers
 
+    def test_parses_language(self):
+        parser = make_parser('basic.txt')
+        assert "Foo" == parser.name
+
     def test_parses_headers_with_extra_comments(self):
         parser = make_parser('extra_header_comments.txt')
         assert {"language": "Foo"} == parser.headers

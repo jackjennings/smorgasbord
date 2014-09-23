@@ -1,6 +1,9 @@
 Smörgåsbord
 ===========
 
+.. image:: https://badge.fury.io/py/smorgasbord.svg
+    :target: http://badge.fury.io/py/smorgasbord
+
 .. image:: https://travis-ci.org/jackjennings/smorgasbord.svg?branch=master
     :target: https://travis-ci.org/jackjennings/smorgasbord
 

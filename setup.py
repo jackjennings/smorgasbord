@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='smorgasbord',
-    version='0.0.1',
+    version='0.0.2',
     author='Jack Jennings',
     author_email='j@ckjennin.gs',
     packages=['smorgasbord'],

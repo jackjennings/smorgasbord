@@ -30,27 +30,28 @@ Supports Python 2.6 – 3.x
     # Reports are accessed though the "reports" dict using the language code
     >>> en = bord.reports["en"]
     
-    # Basic information about the report's language is accessible
-    >>> en.language.code
+    # Information about the reference character set is accessible
+    # under the `reference` property
+    >>> en.reference.code
     "en"
-    >>> en.language.name
+    >>> en.reference.name
     "English"
-    >>> en.language.characters
+    >>> en.reference.characters
     FrozenUnicodeSet([u"a", u"b", u"c", ...])
     
-    # Amount of coverage is availbe as float and string representations
+    # The degree of coverage is available as float and string representations
     >>> en.coverage
     0.057
     >>> en.coverage.percentage
     u"5.7%"
     
-    # Sets of glyphs can be accessed
+    # Sets of covered and uncoverd glyphs can be accessed
     >>> en.covered
     FrozenUnicodeSet([u"a", u"b", u"c"])
     >>> en.uncovered
     FrozenUnicodeSet([u"d", u"e", u"f", ...])
     
-    # Reports can also return a boolean value for completeness:
+    # Reports can also return a boolean value of completeness
     >>> en.complete
     False
     >>> en.incomplete

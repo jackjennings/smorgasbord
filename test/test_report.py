@@ -16,7 +16,7 @@ class TestReport(object):
     def test_sets_language(self):
         report = make_report()
         assert hasattr(report, 'language')
-        assert isinstance(report.language, Language)
+        assert isinstance(report.reference, Language)
 
     def test_sets_coverage(self):
         report = make_report()
@@ -29,5 +29,5 @@ class TestReport(object):
 
     def test_returns_complete(self):
         report = make_report()
-        report = make_report(report.language.characters)
+        report = make_report(report.reference.characters)
         assert report.complete

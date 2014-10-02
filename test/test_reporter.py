@@ -57,4 +57,4 @@ class TestReporter(object):
         custom_fixtures_path = os.path.join(path, 'custom_fixtures')
         reporter = Reporter([], [custom_fixtures_path, fixtures_path])
         expects = os.path.join(custom_fixtures_path, 'basic.txt')
-        assert reporter.reports['basic'].language_filepath == expects
+        assert reporter.reports['basic'].reference_filepath == expects

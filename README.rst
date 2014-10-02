@@ -72,6 +72,13 @@ For example, an ``en.txt`` definition for an English coverage character set:
 
 The first line is a special comment that will be parsed as the language name. Other special comments may be added in the future, but for now only ``Language`` is supported.
 
+You can also use ranges between glyphs. The same English definition could be shortened to:
+
+.. code-block:: python
+
+    # Language: English
+    a-z A-Z
+
 Supplying Character Sets
 ------------------------
 

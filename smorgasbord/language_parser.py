@@ -1,6 +1,7 @@
 import codecs
 from os.path import splitext, basename
 from itertools import takewhile
+from unicodeset import UnicodeSet
 
 
 class LanguageParser(object):
@@ -8,24 +9,40 @@ class LanguageParser(object):
     def __init__(self, filepath):
         self.filepath = filepath
         self.code = splitext(basename(filepath))[0]
-        self.characters = self.parse_characters()
-        self.headers = self.parse_headers()
+        self.headers = self._parse_headers()
+        self.characters = self._parse_characters()
         self.name = self.headers.get('language')
 
-    def parse_characters(self):
-        with self._open_file() as f:
-            characters = [char for line in f if not self._is_comment(line)
-                               for char in line.rstrip('\n').split(' ')]
-        return characters
-
-    def parse_headers(self):
+    def _parse_headers(self):
         headers = {}
-        with self._open_file() as f:
-            head = takewhile(self._is_header, f)
-            for line in head:
-                (key, value) = self._split_header(line)
-                headers[key.lower()] = value.strip()
+        for line in self._header_lines():
+            (key, value) = self._split_header(line)
+            headers[key.lower()] = value.strip()
         return headers
+
+    def _parse_characters(self):
+        characters = [char for line in self._codepoint_lines()
+                           for char in self._parse_line_characters(line)]
+        return UnicodeSet(characters)
+
+    def _parse_line_characters(self, line):
+        return [char for sequence in line.rstrip('\n').split(' ')
+                     for char in self._parse_sequence_characters(sequence)]
+
+    def _parse_sequence_characters(self, sequence):
+        components = sequence.split('-')
+        if len(components) is 1:
+            return components
+        else:
+            return range(ord(components[0]), ord(components[1]) + 1)
+
+    def _header_lines(self):
+        with self._open_file() as f:
+            return list(takewhile(self._is_header, f))
+
+    def _codepoint_lines(self):
+        with self._open_file() as f:
+            return [line for line in f if not self._is_comment(line)]
 
     def _split_header(self, line):
         return line[2:].split(':')

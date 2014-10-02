@@ -13,9 +13,15 @@ The ``Smorgasbord`` class inherits from ``UnicodeSet`` and supports `the same fe
 
 Supports Python 2.6 – 3.x
 
+Installation
+------------
+
 .. code-block:: bash
 
     $ pip install smorgasbord
+
+Usage
+-----
 
 .. code-block:: python
 

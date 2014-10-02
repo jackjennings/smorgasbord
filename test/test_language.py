@@ -7,7 +7,7 @@ fixtures_path = os.path.join(path, 'fixtures')
 class TestLanguage(object):
 
     def test_parse(self):
-        lang = Language.parse(os.path.join(fixtures_path, 'multiline.txt'))
+        lang = Language.parse(os.path.join(fixtures_path, 'basic.txt'))
         assert isinstance(lang, Language)
         assert "Foo" == lang.name
         assert ['a', 'b', 'c'] == list(lang.characters)

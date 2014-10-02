@@ -11,7 +11,6 @@ class LanguageParser(object):
         self.code = splitext(basename(filepath))[0]
         self.headers = self._parse_headers()
         self.characters = self._parse_characters()
-        self.name = self.headers.get('language')
 
     def _parse_headers(self):
         headers = {}
